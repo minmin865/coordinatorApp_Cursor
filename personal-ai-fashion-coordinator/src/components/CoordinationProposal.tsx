@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { CoordinationProposal as CoordinationProposalType, Ideal, IdeasNow, IdeasFuture } from '@/types/database';
+import { CoordinationProposal as CoordinationProposalType, Ideal } from '@/types/database';
 import { mockCoordinationProposals, mockIdeal } from '@/lib/mockData';
 import CoordinationCarousel from './CoordinationCarousel';
-import { Heart, Star, Calendar, MapPin } from 'lucide-react';
+import { Heart, Star, Calendar } from 'lucide-react';
 
 interface CoordinationProposalProps {
   userId: string;
@@ -13,7 +13,6 @@ interface CoordinationProposalProps {
 }
 
 export default function CoordinationProposal({ 
-  userId, 
   onBuyClick, 
   onFeedback 
 }: CoordinationProposalProps) {

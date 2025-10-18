@@ -143,7 +143,7 @@ export default function CoordinationCarousel({
       <div className="mt-6">
         <h4 className="text-lg font-semibold mb-3 text-gray-800">使用アイテム</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {currentCoordination.items.map((item, index) => (
+          {currentCoordination.items.map((item) => (
             <div key={item.id} className="relative group">
               <img
                 src={item.imageUrl}

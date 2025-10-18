@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { PotentialBuy, Action } from '@/types/database';
 import { mockPotentialBuys, mockActions } from '@/lib/mockData';
-import { Check, X, Clock, ShoppingCart, MessageSquare } from 'lucide-react';
+import { Check, X, Clock, MessageSquare } from 'lucide-react';
 
 interface ActionDecisionProps {
   userId: string;
@@ -13,7 +13,6 @@ interface ActionDecisionProps {
 }
 
 export default function ActionDecision({ 
-  userId, 
   potentialBuyId, 
   onDecision, 
   onBack 

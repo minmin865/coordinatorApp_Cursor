@@ -16,14 +16,14 @@ export default function PotentialBuyRegistration({
   onCancel, 
   initialData 
 }: PotentialBuyRegistrationProps) {
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [, setImageFile] = useState<File | null>(null);
   const [imageUrl, setImageUrl] = useState<string>(initialData?.imageUrl || '');
   const [productUrl, setProductUrl] = useState<string>(initialData?.productUrl || '');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<ImageAnalysisResult | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    category: initialData?.category || 'tops',
+    category: (initialData?.category || 'tops') as 'tops' | 'bottoms' | 'dresses' | 'outerwear' | 'shoes' | 'accessories' | 'bags' | 'jewelry',
     color: initialData?.color || '',
     pattern: initialData?.pattern || '',
     material: initialData?.material || '',
@@ -31,7 +31,7 @@ export default function PotentialBuyRegistration({
     price: initialData?.price || 0,
     size: initialData?.size || '',
     tags: initialData?.tags || [],
-    status: initialData?.status || 'considering'
+    status: (initialData?.status || 'considering') as 'considering' | 'decided' | 'purchased' | 'rejected'
   });
   
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -49,7 +49,7 @@ export default function PotentialBuyRegistration({
       setAnalysisResult(result);
       setFormData(prev => ({
         ...prev,
-        category: result.category,
+        category: result.category as 'tops' | 'bottoms' | 'dresses' | 'outerwear' | 'shoes' | 'accessories' | 'bags' | 'jewelry',
         color: result.color,
         pattern: result.pattern,
         material: result.material || '',
@@ -71,7 +71,7 @@ export default function PotentialBuyRegistration({
         setAnalysisResult(result);
         setFormData(prev => ({
           ...prev,
-          category: result.category,
+          category: result.category as 'tops' | 'bottoms' | 'dresses' | 'outerwear' | 'shoes' | 'accessories' | 'bags' | 'jewelry',
           color: result.color,
           pattern: result.pattern,
           material: result.material || '',
@@ -257,7 +257,7 @@ export default function PotentialBuyRegistration({
             </label>
             <select
               value={formData.category}
-              onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
+              onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value as 'tops' | 'bottoms' | 'dresses' | 'outerwear' | 'shoes' | 'accessories' | 'bags' | 'jewelry' }))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {categoryOptions.map(option => (
@@ -346,7 +346,7 @@ export default function PotentialBuyRegistration({
             </label>
             <select
               value={formData.status}
-              onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as any }))}
+              onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as 'considering' | 'decided' | 'purchased' | 'rejected' }))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {statusOptions.map(option => (

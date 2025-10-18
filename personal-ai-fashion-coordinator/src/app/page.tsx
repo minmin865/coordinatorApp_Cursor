@@ -20,7 +20,7 @@ export default function HomePage() {
     setCurrentView('home');
   };
 
-  const handleBuyClick = (coordinationId: string) => {
+  const handleBuyClick = () => {
     setSelectedPotentialBuyId(undefined);
     setCurrentView('decisions');
   };
@@ -30,7 +30,7 @@ export default function HomePage() {
     // 実際の実装では、ここでフィードバックをデータベースに保存
   };
 
-  const handleDecision = (action: any) => {
+  const handleDecision = (action: { potentialBuyId: string; decision: string; reason?: string; comment?: string }) => {
     console.log('決定受信:', action);
     // 実際の実装では、ここでアクションをデータベースに保存
     setCurrentView('home');

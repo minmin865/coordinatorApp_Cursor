@@ -214,8 +214,8 @@ export class CoordinationEngine {
     pattern: CoordinationPattern,
     itemsByCategory: { [key: string]: ClosetItem[] },
     type: 'ideas_now' | 'ideas_future',
-    occasion: string,
-    season: string
+    _occasion: string,
+    _season: string
   ): CoordinationProposal | null {
     const selectedItems: Array<{
       id: string;
@@ -284,8 +284,8 @@ export class CoordinationEngine {
     pattern: CoordinationPattern,
     closetItemsByCategory: { [key: string]: ClosetItem[] },
     potentialBuysByCategory: { [key: string]: PotentialBuy[] },
-    occasion: string,
-    season: string
+    _occasion: string,
+    _season: string
   ): CoordinationProposal | null {
     const selectedItems: Array<{
       id: string;
